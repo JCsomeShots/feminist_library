@@ -17,11 +17,13 @@ class Menu extends React.Component {
 
     add(){
         this.setState({newItemPanel: true})
-        // console.log('mensaje');
+        console.log('mensaje');
     }
     
     onCancel(e){
-        e.preventDefault();
+        if(e && e.preDefault) {
+            e.preDefault();
+        }
         this.setState({newItemPanel: false})
     }
 

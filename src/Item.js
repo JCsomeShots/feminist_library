@@ -65,7 +65,8 @@ class Item extends React.Component{
                     </select>
                 </div>
                 <div className="actions">
-                    <button onClick={this.onremove}>Eliminar</button>
+                    {/* <button onClick={this.onremove}>Eliminar</button> */}
+                    <button>Eliminar</button>
                 </div>
             </div>
         );

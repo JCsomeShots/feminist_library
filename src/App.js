@@ -21,22 +21,22 @@ class App extends React.Component {
     this.onAdd = this.onAdd.bind(this);
   }
 
-  componentDidMount(){
-    this.initBooks();
-  }
+  // componentDidMount(){
+  //   this.initBooks();
+  // }
 
-  initBooks = () => {
-    this.setState( 
-      (state, props) => ({
-      copyBooks: [...state.books]
-      })
-    );
-  }
+  // initBooks = () => {
+  //   this.setState( 
+  //     (state, props) => ({
+  //     copyBooks: [...state.books]
+  //     })
+  //   );
+  // }
 
   onAdd = (item) => {
     console.log(item)
     let temp = [...this.state.books];
-    const id = temp[temp.length-1].id ++;
+    const id = temp[temp.length-1].id +1;
     item['id'] = id;
     temp.push(item);
 
@@ -49,7 +49,7 @@ class App extends React.Component {
         <Menu
         title = "FemRead" 
         onAdd={this.onAdd}/>
-        <List items={this.state.copyBooks} />
+        <List items={this.state.books} />
 
       </div>
     );
