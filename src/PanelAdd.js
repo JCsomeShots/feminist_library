@@ -6,41 +6,41 @@ class PanelAdd extends React.Component{
         super(props);
 
         this.state ={
-            // title: '',
-            // image: '',
-            // rating: 1
+            title: '',
+            image: '',
+            rating: 1
         };
 
         // this.cancelAction = this.cancelAction.bind(this);
-        // this.createItem = this.createItem.bind(this);
-        // this.onChangeImage = this.onChangeImage.bind(this);
-        // this.onChangeTitle = this.onChangeTitle.bind(this);
-        // this.onChangeRating = this.onChangeRating.bind(this);
+        this.createItem = this.createItem.bind(this);
+        this.onChangeImage = this.onChangeImage.bind(this);
+        this.onChangeTitle = this.onChangeTitle.bind(this);
+        this.onChangeRating = this.onChangeRating.bind(this);
     }
 
     // cancelAction(e){
-    //     this.props.onhide();
+    //     this.props.onCancel();
     // }
 
-    // onChangeTitle(e){
-    //     this.setState({title: e.target.value});
+    onChangeTitle(e){
+        this.setState({title: e.target.value});
         
-    // }
-    // onChangeImage(e){
-    //     this.setState({image: e.target.value});
-    // }
-    // onChangeRating(e){
-    //     const rating = parseInt(e.target.value);
-    //     this.setState({rating: rating});
-    // }
+    }
+    onChangeImage(e){
+        this.setState({image: e.target.value});
+    }
+    onChangeRating(e){
+        const rating = parseInt(e.target.value);
+        this.setState({rating: rating});
+    }
 
     createItem(e){
         e.preventDefault();
         const title = this.state.title;
         const image = this.state.image;
         const rating = this.state.rating;
-        this.props.onadd({title: title, image: image, rating: rating});
-        this.cancelAction();
+        this.props.onAdd({title: title, image: image, rating: rating});
+        // this.props.onCancel();
     }
 
     render(){
@@ -49,17 +49,17 @@ class PanelAdd extends React.Component{
                 <div className="new-item-panel">
                     <form onSubmit={this.createItem}>
                         <p>
-                        <label>Título del libro</label><br />
+                        <label>Book title</label><br />
                         <input type="text" name="title" className="input" onChange={this.onChangeTitle} />
                         </p>
 
                         <p>
-                        <label>Nombre de imagen</label><br />
+                        <label>Img name</label><br />
                         <input type="text" name="image" className="input" onChange={this.onChangeImage} />
                         </p>
 
                         <p>
-                        <label>Calificación</label><br />
+                        <label>Clasification</label><br />
                         <select onChange={this.onChangeRating}>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -68,8 +68,9 @@ class PanelAdd extends React.Component{
                             <option value="5">5</option>
                         </select>
                         </p>
-                        <input type="submit" className="button btn-blue" value="Registrar libro" />
-                        <button className="button btn-normal" onClick={this.props.onhide}>Cancelar</button>
+                        <input type="submit" className="button btn-blue" value="Book register" />
+                        {/* <button className="button btn-normal" onClick={this.props.onCancel}>Cancel</button> */}
+                        <button className="button btn-normal" onClick={this.props.onCancel}>Cancelar</button>
                     </form>
                 </div>
             </div>

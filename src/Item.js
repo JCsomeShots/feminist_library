@@ -27,7 +27,7 @@ class Item extends React.Component{
             stars: Array(parseInt(this.props.rating)).fill(1)
         });
     }
-  
+
     // onremove(e){
     //     console.log(this.props.id);
     //     this.props.onremove(this.props.id);
@@ -55,7 +55,8 @@ class Item extends React.Component{
                     )} 
                     </p>
                     Calificación: 
-                    <select value={this.state.rating} onChange={this.onChangeRating}>
+                    <select value={this.state.rating} >
+                    {/* <select value={this.state.rating} onChange={this.onChangeRating}> */}
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
